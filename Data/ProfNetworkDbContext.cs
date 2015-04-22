@@ -1,6 +1,7 @@
 ﻿namespace Data
 {
     using System;
+    using System.Linq;
     using System.Data.Entity;
 
     using Microsoft.AspNet.Identity.EntityFramework;
@@ -8,6 +9,7 @@
     using Models;
     using Data.Interfaces;
     using Data.Migrations;
+    using Common.Models;
 
     public class ProfNetworkDbContext : IdentityDbContext<User>, IProfNetworkDbContext
     {
@@ -24,7 +26,37 @@
             return new ProfNetworkDbContext();
         }
 
-
         public IDbSet<SkillsTag> Skills { get; set; }
+
+        public override int SaveChanges()
+        {
+            this.ApplyAuditInfoRules();
+            return base.SaveChanges();
+        }
+
+        private void ApplyAuditInfoRules()
+        {
+            // Approach via @julielerman: http://bit.ly/123661P
+            foreach (var entry in
+                this.ChangeTracker.Entries()
+                    .Where(
+                        e =>
+                        e.Entity is IAuditInfo && ((e.State == EntityState.Added) || (e.State == EntityState.Modified))))
+            {
+                var entity = (IAuditInfo)entry.Entity;
+
+                if (entry.State == EntityState.Added)
+                {
+                    if (!entity.PreserveCreatedOn)
+                    {
+                        entity.CreatedOn = DateTime.Now;
+                    }
+                }
+                else
+                {
+                    entity.ModifiedOn = DateTime.Now;
+                }
+            }
+        }
     }
 }

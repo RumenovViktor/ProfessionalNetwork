@@ -6,8 +6,10 @@
 
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
+    
+    using Common.Models;
 
-    public class User : IdentityUser
+    public class User : IdentityUser, IAuditInfo
     {
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager)
         {
@@ -17,6 +19,10 @@
             return userIdentity;
         }
 
+        public DateTime CreatedOn { get; set; }
 
+        public bool PreserveCreatedOn { get; set; }
+
+        public DateTime? ModifiedOn { get; set; }
     }
 }

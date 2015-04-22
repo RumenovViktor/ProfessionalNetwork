@@ -2,9 +2,10 @@
 {
     using System;
 
+    using Common.Models;
     using Models.Interfaces;
 
-    public abstract class Tag : ITag
+    public abstract class Tag : AuditInfo, ITag
     {
         public virtual string Text { get; set; }
     }
