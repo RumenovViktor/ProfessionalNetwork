@@ -9,6 +9,6 @@
     {
         IDbSet<User> Users { get; set; }
 
-        IDbSet<SkillsTag> Skills { get; set; }
+        IDbSet<SkillTag> Skills { get; set; }
     }
 }

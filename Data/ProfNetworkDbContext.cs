@@ -26,7 +26,7 @@
             return new ProfNetworkDbContext();
         }
 
-        public IDbSet<SkillsTag> Skills { get; set; }
+        public IDbSet<SkillTag> Skills { get; set; }
 
         public override int SaveChanges()
         {

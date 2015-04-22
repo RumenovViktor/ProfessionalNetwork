@@ -3,14 +3,22 @@
     using System;
     using System.Security.Claims;
     using System.Threading.Tasks;
+    using System.Collections.Generic;
 
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
     
     using Common.Models;
+    using Common.Models.Intefaces;
 
-    public class User : IdentityUser, IAuditInfo
+    public class User : IdentityUser, IAuditInfo, IDeletableEntity
     {
+        public User()
+        {
+            // This will prevent UserManager.CreateAsync from causing exception
+            this.CreatedOn = DateTime.Now;
+        }
+
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
@@ -19,10 +27,16 @@
             return userIdentity;
         }
 
+        public virtual ICollection<SkillTag> Skills { get; set; }
+
         public DateTime CreatedOn { get; set; }
 
         public bool PreserveCreatedOn { get; set; }
 
         public DateTime? ModifiedOn { get; set; }
+
+        public bool IsDeleted { get; set; }
+
+        public DateTime? DeletedOn { get; set; }
     }
 }
