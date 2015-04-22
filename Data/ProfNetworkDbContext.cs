@@ -7,9 +7,9 @@
     using Microsoft.AspNet.Identity.EntityFramework;
 
     using Models;
+    using Common.Models;
     using Data.Interfaces;
     using Data.Migrations;
-    using Common.Models;
 
     public class ProfNetworkDbContext : IdentityDbContext<User>, IProfNetworkDbContext
     {
@@ -27,6 +27,8 @@
         }
 
         public IDbSet<SkillTag> Skills { get; set; }
+
+
 
         public override int SaveChanges()
         {

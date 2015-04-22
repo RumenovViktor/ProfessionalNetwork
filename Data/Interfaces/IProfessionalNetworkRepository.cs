@@ -13,9 +13,7 @@
 
         void Update(T entity);
 
-        T Delete(T entity);
-
-        T DeleteById(T id);
+        void Delete(T entity);
 
         void Detach(T entity);
 
