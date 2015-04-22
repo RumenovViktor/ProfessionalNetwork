@@ -11,9 +11,14 @@
     public class ProfNetworkDbContext : IdentityDbContext<User>, IProfNetworkDbContext
     {
         public ProfNetworkDbContext()
-            : base("ProfessionalNetwork")
+            : base("ProfessionalNetwork", throwIfV1Schema: false)
         {
 
+        }
+
+        public static ProfNetworkDbContext Create()
+        {
+            return new ProfNetworkDbContext();
         }
     }
 }
