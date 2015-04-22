@@ -11,8 +11,10 @@
 
     public class ProfNetworkDbContext : IdentityDbContext<User>, IProfNetworkDbContext
     {
+        private const string nameForConnectionString = "ProfessionalNetwork";
+
         public ProfNetworkDbContext()
-            : base("ProfessionalNetwork", throwIfV1Schema: false)
+            : base(nameForConnectionString, throwIfV1Schema: false)
         {
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<ProfNetworkDbContext, Configuration>());
         }
@@ -21,5 +23,8 @@
         {
             return new ProfNetworkDbContext();
         }
+
+
+        public IDbSet<SkillsTag> Skills { get; set; }
     }
 }

@@ -8,5 +8,7 @@
     public interface IProfNetworkDbContext
     {
         IDbSet<User> Users { get; set; }
+
+        IDbSet<SkillsTag> Skills { get; set; }
     }
 }
