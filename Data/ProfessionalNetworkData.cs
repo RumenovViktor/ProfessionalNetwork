@@ -16,7 +16,6 @@
         public ProfessionalNetworkData()
             : this(new ProfNetworkDbContext())
         {
-
         }
 
         public ProfessionalNetworkData(IProfNetworkDbContext context)
@@ -30,7 +29,7 @@
             this.context.SaveChanges();
         }
 
-        public IProfessionalNetworkRepository<SkillTag> Skills
+        public IDeletableEntityRepository<SkillTag> Skills
         {
             get
             {
@@ -38,7 +37,7 @@
             }
         }
 
-        public IProfessionalNetworkRepository<User> Users
+        public IDeletableEntityRepository<User> Users
         {
             get
             {
@@ -46,12 +45,12 @@
             }
         }
 
-        private IProfessionalNetworkRepository<T> GetRepository<T>() where T : class
+        private IDeletableEntityRepository<T> GetRepository<T>() where T : class
         {
             var typeOfModel = typeof(T);
             if (!this.repositories.ContainsKey(typeOfModel))
             {
-                var type = typeof(IProfessionalNetworkRepository<T>);
+                var type = typeof(IDeletableEntityRepository<T>);
 
                 //if (typeOfModel.IsAssignableFrom(typeof(Student)))
                 //{
@@ -61,7 +60,7 @@
                 this.repositories.Add(typeOfModel, Activator.CreateInstance(type, this.context));
             }
 
-            return (IProfessionalNetworkRepository<T>)this.repositories[typeOfModel];
+            return (IDeletableEntityRepository<T>)this.repositories[typeOfModel];
         }
     }
 }
