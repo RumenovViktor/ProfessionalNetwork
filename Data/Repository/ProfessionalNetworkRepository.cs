@@ -1,4 +1,4 @@
-﻿namespace Common.Repository
+﻿namespace Data.Repository
 {
     using System;
     using System.Linq;

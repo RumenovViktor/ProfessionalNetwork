@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\IProfessionalNetworkData.cs" />
     <Compile Include="Interfaces\IProfessionalNetworkRepository.cs" />
     <Compile Include="Interfaces\IProfNetworkDbContext.cs" />
     <Compile Include="Migrations\Configuration.cs" />

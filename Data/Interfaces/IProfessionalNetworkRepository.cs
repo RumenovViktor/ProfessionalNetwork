@@ -3,7 +3,7 @@
     using System;
     using System.Linq;
 
-    interface IProfessionalNetworkRepository<T> : IDisposable where T : class
+    public interface IProfessionalNetworkRepository<T> : IDisposable where T : class
     {
         IQueryable<T> All();
 
