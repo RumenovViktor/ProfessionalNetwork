@@ -55,6 +55,7 @@
     <Compile Include="Interfaces\IProfessionalNetworkRepository.cs" />
     <Compile Include="Interfaces\IProfNetworkDbContext.cs" />
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="ProfessionalNetworkData.cs" />
     <Compile Include="ProfNetworkDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\ProfessionalNetworkRepository.cs" />

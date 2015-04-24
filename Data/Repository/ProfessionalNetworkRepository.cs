@@ -30,6 +30,11 @@
             return this.DbSet.AsQueryable();
         }
 
+        public virtual T GetById(T id)
+        {
+            return this.DbSet.Find(id);
+        }
+
         public virtual void Add(T entity)
         {
             DbEntityEntry entry = this.Context.Entry(entity);
@@ -42,11 +47,6 @@
             {
                 this.DbSet.Add(entity);
             }
-        }
-
-        public virtual T GetById(T id)
-        {
-            return this.DbSet.Find(id);
         }
 
         public virtual void Update(T entity)

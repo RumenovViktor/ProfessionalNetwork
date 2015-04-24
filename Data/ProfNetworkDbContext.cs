@@ -37,8 +37,7 @@
         private void ApplyAuditInfoRules()
         {
             // Approach via @julielerman: http://bit.ly/123661P
-            foreach (var entry in
-                this.ChangeTracker.Entries()
+            foreach (var entry in this.ChangeTracker.Entries()
                     .Where(
                         e =>
                         e.Entity is IAuditInfo && ((e.State == EntityState.Added) || (e.State == EntityState.Modified))))
