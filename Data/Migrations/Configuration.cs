@@ -10,7 +10,7 @@ namespace Data.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
-            AutomaticMigrationDataLossAllowed = true;
+            AutomaticMigrationDataLossAllowed = true; // change to false if in production.
         }
 
         protected override void Seed(Data.ProfNetworkDbContext context)

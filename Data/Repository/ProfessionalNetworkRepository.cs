@@ -32,11 +32,21 @@
 
         public virtual T GetById(T id)
         {
+            if (id == null)
+            {
+                throw new ArgumentException("'id' can not be 'null'");
+            }
+
             return this.DbSet.Find(id);
         }
 
         public virtual void Add(T entity)
         {
+            if (entity == null)
+            {
+                throw new ArgumentException("'entity' can not be 'null'");
+            }
+
             DbEntityEntry entry = this.Context.Entry(entity);
 
             if (entry.State != EntityState.Detached)
@@ -51,6 +61,11 @@
 
         public virtual void Update(T entity)
         {
+            if (entity == null)
+            {
+                throw new ArgumentException("'entity' can not be 'null'");
+            }
+
             DbEntityEntry entry = this.Context.Entry(entity);
 
             if (entry.State == EntityState.Detached)
@@ -63,6 +78,11 @@
 
         public virtual void Delete(T entity)
         {
+            if (entity == null)
+            {
+                throw new ArgumentException("'entity' can not be 'null'");
+            }
+
             DbEntityEntry entry = this.Context.Entry(entity);
 
             if (entry.State != EntityState.Deleted)
