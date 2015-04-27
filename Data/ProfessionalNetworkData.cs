@@ -12,12 +12,6 @@
         private IProfNetworkDbContext context;
         private IDictionary<Type, object> repositories;
 
-        // Poor man's dependancy inversion. TODO: To fix it with Ninject.
-        public ProfessionalNetworkData()
-            : this(new ProfNetworkDbContext())
-        {
-        }
-
         public ProfessionalNetworkData(IProfNetworkDbContext context)
         {
             this.context = context;
