@@ -1,0 +1,22 @@
+﻿body {
+}
+
+canvas{
+    width: 400px;
+    height: 400px;
+}
+
+.rotating-circle-container{
+    width: 400px;
+    height: 500px;
+    top: 15%;
+    position: absolute;
+}
+
+.wide {
+  width:109.2%;
+  height:650px;
+  background-image:url('Hand-Shake.png');
+  background-size:cover;
+  position: relative;
+}
