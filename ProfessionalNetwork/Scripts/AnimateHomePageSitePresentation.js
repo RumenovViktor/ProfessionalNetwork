@@ -3,17 +3,20 @@
     window.requestAnimationFrame = requestAnimationFrame;
 }());
 
-var canvas = document.getElementById('textPresentCanvas');
-var context = canvas.getContext('2d');
+var canvas = document.getElementById('textPresentCanvas'),
+    context = canvas.getContext('2d'),
+    circles = [],
+    xCoord = 100,
+    yCoord = 100;
+
 canvas.width = 300;
 canvas.height = 300;
-var circles = [];
 
-createCircle(100, 100, '| | |', function () {
+createCircle(xCoord, yCoord, '| | |', function () {
 });
 
 function createCircle(x, y, text, callback) {
-    var radius = 75;
+    var radius = 65;
     var endPercent = 101;
     var curPerc = 0;
     var counterClockwise = false;
@@ -21,14 +24,14 @@ function createCircle(x, y, text, callback) {
     var quart = Math.PI / 2;
 
     context.lineWidth = 10;
-    context.strokeStyle = '#34495e';
+    context.strokeStyle = '#16a085';
     context.shadowOffsetX = 0;
     context.shadowOffsetY = 0;
 
     function doText(context, x, y, text) {
         context.lineWidth = 1;
-        context.fillStyle = "#34495e";
-        context.lineStyle = "#34495e";
+        context.fillStyle = "#16a085";
+        context.lineStyle = "#16a085";
         context.font = "26px sans-serif";
         context.fillText(text, x - 15, y + 5);
     }
