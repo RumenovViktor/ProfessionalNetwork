@@ -26,8 +26,6 @@
             return new ProfNetworkDbContext();
         }
 
-        public IDbSet<SkillTag> Skills { get; set; }
-
         public override int SaveChanges()
         {
             this.ApplyAuditInfoRules();

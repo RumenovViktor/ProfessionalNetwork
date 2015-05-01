@@ -23,14 +23,6 @@
             this.context.SaveChanges();
         }
 
-        public IDeletableEntityRepository<SkillTag> Skills
-        {
-            get
-            {
-                return GetRepository<SkillTag>();
-            }
-        }
-
         public IDeletableEntityRepository<User> Users
         {
             get
