@@ -21,6 +21,7 @@
     createCircle(xCoord, yCoord, '| | |', function () {
     });
 
+    // Create a circle with animation and display some text inside the circle.
     function createCircle(x, y, text, callback) {
         var radius = 65;
         var endPercent = 101;

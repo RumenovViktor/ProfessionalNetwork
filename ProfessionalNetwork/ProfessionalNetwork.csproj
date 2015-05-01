@@ -272,6 +272,10 @@
       <Project>{1d3bf0d0-29fa-432b-aeef-8d25794bbecc}</Project>
       <Name>Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj">
+      <Project>{e9915975-067b-446d-9456-bdc6bea24943}</Project>
+      <Name>Infrastructure</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Models\Models.csproj">
       <Project>{b7293fb7-94f4-4ab1-b05a-3162e779efe3}</Project>
       <Name>Models</Name>
