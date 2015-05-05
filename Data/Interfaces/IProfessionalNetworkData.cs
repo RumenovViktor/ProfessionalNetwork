@@ -7,7 +7,7 @@
 
     public interface IProfessionalNetworkData
     {
-        IDeletableEntityRepository<SkillTag> Skills { get; }
+        IDeletableEntityRepository<Skill> Skills { get; }
 
         IDeletableEntityRepository<User> Users { get; }
 
