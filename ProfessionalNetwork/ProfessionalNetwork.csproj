@@ -206,6 +206,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Images\Hand-Shake.png" />
+    <Content Include="Images\noUserImg.png" />
     <Content Include="Scripts\animate-home-page-site-presentation.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
