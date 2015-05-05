@@ -10,7 +10,7 @@
     {
         IDbSet<User> Users { get; set; }
 
-        IDbSet<SkillTag> Skills { get; set; }
+        IDbSet<Skill> Skills { get; set; }
 
         DbSet<TEntity> Set<TEntity>() where TEntity : class;
 

@@ -13,13 +13,13 @@
 
     public class User : IdentityUser, IAuditInfo, IDeletableEntity
     {
-        private ICollection<SkillTag> skills;
+        private ICollection<Skill> skills;
 
         public User()
         {
             // This will prevent UserManager.CreateAsync from causing exception
             this.CreatedOn = DateTime.Now;
-            this.skills = new HashSet<SkillTag>();
+            this.skills = new HashSet<Skill>();
         }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager)
@@ -30,7 +30,7 @@
             return userIdentity;
         }
 
-        public virtual ICollection<SkillTag> Skills
+        public virtual ICollection<Skill> Skills
         {
             get { return this.skills; }
             set { value = this.skills; }
